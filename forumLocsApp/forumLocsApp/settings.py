@@ -83,7 +83,6 @@ DATABASES = {
 }
 
 PROJECT_APPS = (
-	'API',
 )
 
 
