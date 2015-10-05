@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_jenkins',
+    'forum',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,6 +84,7 @@ DATABASES = {
 }
 
 PROJECT_APPS = (
+'forum',
 )
 
 
