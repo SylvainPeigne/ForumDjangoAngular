@@ -116,3 +116,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+if socket.gethostname() == "sylflo.fr":
+    DEBUG = TEMPLATE_DEBUG = False
+    ALLOWED_HOSTS = ["couture.sylflo.fr", ".sylflo.fr", "sylflo.fr"]
+    ADMINS = (
+    	('Sylvain Chateau', 'dev.chateau@gmail.com'),
+    )
+    DATABASES = {
+        'default':
+            {'ENGINE': 'django.db.backends.postgresql_psycopg2',
+             'NAME': u'locsappforum',
+             'HOST': u'localhost',
+             'USER': 'locsappforum',
+             'PASSWORD': 'Kyyu8Q{WS4?.z>U%﻿',
+             'PORT': ''}
+    }
+
