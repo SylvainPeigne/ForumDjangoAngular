@@ -130,7 +130,7 @@ if socket.gethostname() == "sylflo.fr":
              'NAME': u'locsappforum',
              'HOST': u'localhost',
              'USER': 'locsappforum',
-             'PASSWORD': 'Xc$;vqGtv6td',
+             'PASSWORD': '+YA5V9(8R}',
              'PORT': ''}
     }
 
