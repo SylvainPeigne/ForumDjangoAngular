@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from rest_framework_nested import routers
+
+from forum.views import CategoryViewSet, SubjectViewSet, NormalMessageViewSet
+
+router = routers.SimpleRouter()
+router.register(r'categories', CategoryViewSet)
+router.register(r'subjects', SubjectViewSet)
+router.register(r'messages', NormalMessageViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
+
+    url(r'^api/v1/', include(router.urls)),
 ]

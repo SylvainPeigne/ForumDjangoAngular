@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_jenkins',
+    'rest_framework',
+    'rest_framework_swagger',
     'forum',
 )
 
@@ -85,18 +87,18 @@ DATABASES = {
 }
 
 PROJECT_APPS = (
-'forum',
+    'forum',
 )
 
 
-#JENKINS TASKS
+# JENKINS TASKS
 JENKINS_TASKS = (
-        'django_jenkins.tasks.run_pep8',
-        'django_jenkins.tasks.run_pyflakes',
-        #'django_jenkins.tasks.run_jslint',
-        #'django_jenkins.tasks.run_csslint',    
-        #'django_jenkins.tasks.run_sloccount'
-    )
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pyflakes',
+    # 'django_jenkins.tasks.run_jslint',
+    #'django_jenkins.tasks.run_csslint',
+    #'django_jenkins.tasks.run_sloccount'
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -122,7 +124,7 @@ if socket.gethostname() == "sylflo.fr":
     DEBUG = TEMPLATE_DEBUG = False
     ALLOWED_HOSTS = ["couture.sylflo.fr", ".sylflo.fr", "sylflo.fr"]
     ADMINS = (
-    	('Sylvain Chateau', 'dev.chateau@gmail.com'),
+        ('Sylvain Chateau', 'dev.chateau@gmail.com'),
     )
     DATABASES = {
         'default':
