@@ -9,7 +9,7 @@
         .module(NAME + 'Routes', [])
         .config(function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise('/toto');
+            $urlRouterProvider.otherwise('/');
 
             $stateProvider
 
