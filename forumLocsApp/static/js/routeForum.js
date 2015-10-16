@@ -16,7 +16,8 @@
                 // HOME STATES AND NESTED VIEWS ========================================
                 .state('toto', {
                     url: '/toto',
-                    templateUrl: '/static/templates/partial-home.html'
+                    templateUrl: '/static/templates/partial-home.html',
+                    controller: 'LoginController'
                 })
 
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
