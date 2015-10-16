@@ -41,6 +41,8 @@ INSTALLED_APPS = (
     'django_jenkins',
     'rest_framework',
     'rest_framework_swagger',
+    'djangobower',
+
     'forum',
 )
 
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'forumLocsApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -96,8 +98,8 @@ JENKINS_TASKS = (
     'django_jenkins.tasks.run_pep8',
     'django_jenkins.tasks.run_pyflakes',
     # 'django_jenkins.tasks.run_jslint',
-    #'django_jenkins.tasks.run_csslint',
-    #'django_jenkins.tasks.run_sloccount'
+    # 'django_jenkins.tasks.run_csslint',
+    # 'django_jenkins.tasks.run_sloccount'
 )
 
 # Internationalization
@@ -119,6 +121,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+)
+
+# Directory where bower package are installed
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static/")
+
+BOWER_INSTALLED_APPS = (
+    'angular',
+    'skeleton',
+)
 
 if socket.gethostname() == "sylflo.fr":
     DEBUG = TEMPLATE_DEBUG = False
