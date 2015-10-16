@@ -136,6 +136,8 @@ BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static/")
 
 BOWER_INSTALLED_APPS = (
     'angular',
+    'angular-ui-router',
+    'angular-route',
     'skeleton',
 )
 
