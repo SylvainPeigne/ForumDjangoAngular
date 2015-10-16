@@ -131,6 +131,7 @@ STATICFILES_FINDERS = (
 )
 
 
+
 # Directory where bower package are installed
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static/")
 
@@ -140,6 +141,13 @@ BOWER_INSTALLED_APPS = (
     'angular-route',
     'skeleton',
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
 
 if socket.gethostname() == "sylflo.fr":
     DEBUG = TEMPLATE_DEBUG = False
