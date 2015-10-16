@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework_nested import routers
 
+from .views import IndexView
 from forum.views import CategoryViewSet, SubjectViewSet, NormalMessageViewSet
 
 router = routers.SimpleRouter()
@@ -29,4 +30,7 @@ urlpatterns = [
     url(r'^docs/', include('rest_framework_swagger.urls')),
 
     url(r'^api/v1/', include(router.urls)),
+
+    url('^.*$', IndexView.as_view(), name='index'),
+
 ]
