@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 
 from .models import Category, Subject, NormalMessage
@@ -28,3 +27,4 @@ class NormalMessageViewSet(ModelViewSet):
         subject = Subject.objects.get(pk=1)
         instance = serializer.save(subject=subject)
         return super(NormalMessageViewSet, self).perform_create(serializer)
+

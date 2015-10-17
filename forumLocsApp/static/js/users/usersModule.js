@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module(NAME + 'Users', []);
+        .module(NAME + 'Users', [NAME + 'UsersControllers', NAME + 'UsersServices']);
 
     angular.module(NAME + 'UsersControllers', []);
     angular.module(NAME + 'UsersServices', []);

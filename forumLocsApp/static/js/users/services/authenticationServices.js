@@ -22,7 +22,7 @@
 
         function login(username, password) {
 
-            return $http.post('/api-auth/login/', {
+            return $http.post('/api/auth/login/', {
 
                 username: username,
                 password: password

@@ -18,7 +18,9 @@ from django.contrib import admin
 from rest_framework_nested import routers
 
 from .views import IndexView
+from authentication.views import LoginView
 from forum.views import CategoryViewSet, SubjectViewSet, NormalMessageViewSet
+
 
 router = routers.SimpleRouter()
 router.register(r'categories', CategoryViewSet)
@@ -31,6 +33,8 @@ urlpatterns = [
 
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/', include(router.urls)),
+
+    url(r'^api/auth/login/$', LoginView.as_view(), name='login'),
 
     url('^.*$', IndexView.as_view(), name='index'),
 
