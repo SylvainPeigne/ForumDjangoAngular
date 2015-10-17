@@ -8,7 +8,7 @@
 
     angular
         .module(NAME, ['ui.router', NAME + 'Config',
-            NAME + 'Routes'])
+            NAME + 'Routes', NAME + 'Users'])
         .run(run);
 
     run.$inject = ['$http'];

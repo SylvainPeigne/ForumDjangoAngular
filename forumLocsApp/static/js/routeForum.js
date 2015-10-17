@@ -14,8 +14,8 @@
             $stateProvider
 
                 // HOME STATES AND NESTED VIEWS ========================================
-                .state('toto', {
-                    url: '/toto',
+                .state('login', {
+                    url: '/login',
                     templateUrl: '/static/templates/partial-home.html',
                     controller: 'LoginController'
                 })
