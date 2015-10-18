@@ -1,0 +1,73 @@
+#profil {
+background-color: #660f0e;
+margin-left: 50px;
+margin-top: 30px;
+width: 1200px;
+border-width:1px;
+border-color: #0000ff;
+border-style:solid;
+border-radius: 10px;
+}
+
+#image-profil {
+margin-left:5px;
+margin-top: 5px;
+width: 50px;
+height:50px;
+}
+
+#img-profil {
+height:50px;
+margin-left:auto;
+margin-right:auto;
+}
+
+
+#entete {
+margin-top:-50px;
+margin-left:60px;
+margin-right:5px;
+height:50px;
+background-color: #552233;
+border-radius:20px;
+}
+
+div#info {
+margin-left: 20px;
+}
+
+a#pseudo {
+font-weight: bold;
+margin-left: 30px;
+}
+
+div#titre {
+background-color:#660055;
+margin-top: 2px;
+margin-left: 10px;
+border-radius: 5px;
+margin-right:15px;
+/*height: 30px;*/
+}
+
+div#titre a {
+margin-left: 10px;
+}
+
+#article {
+background-color: #8888ff;
+margin-left: 5px;
+margin-top: 5px;
+margin-right:5px;
+margin-bottom: 5px;
+border-radius: 8px;
+}
+
+#article a {
+margin-left: 10px;
+}
+
+#vide {
+width: 1px;
+height: 1px;
+}
