@@ -13,7 +13,9 @@ gulp.task('css', function () {
         .pipe(plumber())
         .pipe(sass())                      // Compile les fichiers
         .pipe(minifyCss())                 // Minifie le CSS qui a été généré
-        .pipe(gulp.dest('./static_root/css/'))  // Sauvegarde le tout dans /src/style
+        .pipe(gulp.dest('./static_root/css/'))
+        .pipe(gulp.dest('./static/css/'))
+          // Sauvegarde le tout dans /src/style
         .pipe(livereload());
 });
 
