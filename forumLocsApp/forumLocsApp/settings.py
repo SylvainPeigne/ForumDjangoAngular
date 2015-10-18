@@ -139,7 +139,7 @@ BOWER_INSTALLED_APPS = (
     'angular',
     'angular-ui-router',
     'angular-route',
-    'skeleton',
+    'bootstrap',
 )
 
 REST_FRAMEWORK = {
