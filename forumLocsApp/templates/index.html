@@ -14,21 +14,26 @@
        {% endif %}-->
 
 
-<body>
+<body style="background: url('/media/background.jpg'); background-size: cover;">
 
 <header>
     {% include 'header.html' %}
 </header>
 
 <div id="sidebar">
- {% include 'sidebar.html' %}
+    <div class="my-container">
+        <div class="row">
+            <div class="col-md-2 no-float">Navigation</div>
+            <div class="col-md-10 no-float">
+                <div ui-view>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
-
-<div ui-view>
-
-</div>
 
 <footer>
 
