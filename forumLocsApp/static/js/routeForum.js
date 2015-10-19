@@ -14,10 +14,10 @@
             $stateProvider
 
                 // HOME STATES AND NESTED VIEWS ========================================
-                .state('login', {
-                    url: '/login',
-                    templateUrl: '/static/templates/partial-home.html',
-                    controller: 'LoginController'
+                .state('profile', {
+                    url: '/profile',
+                    templateUrl: '/static/templates/profile.html'
+                   // controller: 'ProfileController'
                 })
 
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
