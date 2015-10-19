@@ -7,8 +7,14 @@
     'use strict';
 
     angular
-        .module(NAME, ['ui.router', NAME + 'Config',
-            NAME + 'Routes', NAME + 'Users'])
+        .module(NAME,
+        [
+            'ui.router',
+            'ui.bootstrap',
+            NAME + 'Config',
+            NAME + 'Routes',
+            NAME + 'Users'
+        ])
         .run(run);
 
     run.$inject = ['$http'];
