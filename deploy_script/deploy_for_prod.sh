@@ -8,6 +8,7 @@ git pull
 
 source /var/lib/jenkins/.virtualenvs/locsAppForum/bin/activate
 pip install -r /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp/requirements.txt
+python  /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp/manage.py bower install
 python  /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp/manage.py collectstatic --noinput
 python  /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp/manage.py makemigrations
 python  /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp/manage.py migrate
