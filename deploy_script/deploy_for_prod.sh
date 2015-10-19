@@ -11,9 +11,9 @@ pip install -r /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp/
 python  /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp/manage.py collectstatic --noinput
 python  /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp/manage.py makemigrations
 python  /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp/manage.py migrate
-cd /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/ForumLocsAppFront/dev
-bower install
+cd /var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/forumLocsApp
 npm install
-/var/www/locsapp-forum.sylflo.fr/ForumDjangoAngular/ForumLocsAppFront/dev/launch_all_gulp.sh
+gulp css
+gulp js
 sudo /etc/init.d/nginx  restart
 
