@@ -11,6 +11,7 @@
         [
             'ui.router',
             'ui.bootstrap',
+            'ui.bootstrap.tpls',
             NAME + 'Config',
             NAME + 'Routes',
             NAME + 'Users'
