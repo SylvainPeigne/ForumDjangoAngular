@@ -15,7 +15,8 @@
     function Authentication($http) {
 
         var Authentication = {
-            login: login
+            login: login,
+            logout: logout
         };
 
         return Authentication;
@@ -27,6 +28,10 @@
                 username: username,
                 password: password
             })
+        }
+
+        function logout() {
+            return $http.post('/api/auth/logout/', {});
         }
     }
 })();

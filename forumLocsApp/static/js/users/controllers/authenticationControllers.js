@@ -11,9 +11,9 @@
         .controller('LoginController', LoginController)
         .controller('ModalInstanceController', ModalInstanceController);
 
-    LoginController.$inject = ['$scope', '$uibModal', 'Authentication', '$log'];
+    LoginController.$inject = ['$scope', '$uibModal', '$window', 'Authentication'];
 
-    function LoginController($scope, $uibModal, Authentication, $log) {
+    function LoginController($scope, $uibModal, $window, Authentication) {
 
         $scope.animationsEnabled = true;
         $scope.open = function (size) {
@@ -22,56 +22,56 @@
                 animation: $scope.animationsEnabled,
                 templateUrl: 'LoginModalContent.html',
                 controller: 'ModalInstanceController',
-                size: size,
-                resolve: {
-                    items: function () {
-                        return $scope.items;
-                    }
-                }
+                size: size
             });
 
-            modalInstance.result.then(function (selectedItem) {
-                $scope.selected = selectedItem;
-            }, function () {
-                $log.info('Modal dismissed at: ' + new Date());
-            });
+
         };
 
         $scope.toggleAnimation = function () {
             $scope.animationsEnabled = !$scope.animationsEnabled;
         };
 
+        $scope.logout = function () {
+            Authentication.logout().then(logoutSuccessFn, logoutErrorFn);
 
-        /*
-         call_service(Authentication);
-         */
+            function logoutSuccessFn(data, status, headers, config) {
+                console.log("logout Success", data.data);
+                $window.location.reload('/');
 
+            }
+
+            function logoutErrorFn(data, status, headers, config) {
+                console.error('Epic failure');
+
+            }
+        };
 
     }
 
-    /* function call_service(Authentication) {
-     Authentication.login("toto", "toto").then(loginSuccessFn, loginErrorFn);
 
-     function loginSuccessFn(data, status, headers, config) {
-     console.log("data success = ", data);
-     }
+    /* ModalInstance Controller */
+    ModalInstanceController.$inject = ['$scope', '$window', '$modalInstance', 'Authentication'];
 
-     function loginErrorFn(data, status, headers, config) {
-     console.error("Epic failure data = ", data);
-     }
-     }*/
+    function ModalInstanceController($scope, $window, $modalInstance, Authentication) {
 
-    ModalInstanceController.$inject = ['$scope', '$modalInstance', 'items'];
+        $scope.logUser = function () {
+            Authentication.login($scope.username, $scope.password).then(loginSuccessFn, loginErrorFn);
 
-    function ModalInstanceController($scope, $modalInstance, items) {
-        $scope.items = items;
-        $scope.selected = {
-            //item: $scope.items[0]
+
+            function loginSuccessFn(data, status, headers, config) {
+                console.log("data success = ", data);
+                $modalInstance.close();
+                $window.location.reload('/');
+
+            }
+
+            function loginErrorFn(data, status, headers, config) {
+                console.error("Epic failure data = ", data);
+            }
+
         };
 
-        $scope.ok = function () {
-            $modalInstance.close($scope.selected.item);
-        };
 
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');

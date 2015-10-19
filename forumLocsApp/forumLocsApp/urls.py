@@ -20,7 +20,7 @@ from django.contrib import admin
 from rest_framework_nested import routers
 
 from .views import IndexView
-from authentication.views import LoginView
+from authentication.views import LoginView, LogoutView
 from forum.views import CategoryViewSet, SubjectViewSet, NormalMessageViewSet
 
 
@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
 
     url(r'^api/auth/login/$', LoginView.as_view(), name='login'),
+    url(r'^api/auth/logout/$', LogoutView.as_view(), name='logout')
 ]
 
 if settings.DEBUG:

@@ -13,11 +13,17 @@
 
             $stateProvider
 
+                .state('home', {
+                    url: '/',
+                    reload: true
+                })
+
                 // HOME STATES AND NESTED VIEWS ========================================
                 .state('profile', {
                     url: '/profile',
-                    templateUrl: '/static/templates/profile.html'
-                   // controller: 'ProfileController'
+                    templateUrl: '/static/templates/profile.html',
+                   // controller: 'ProfileController',
+                    reload: true
                 })
 
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================

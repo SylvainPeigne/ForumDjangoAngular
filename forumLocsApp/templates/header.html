@@ -41,7 +41,18 @@
             {% include 'login-modal.html' %}
 
 
+            {% if user.is_authenticated %}
+            <li><a href="/+{{ user.username }}">+{{ user.username }}</a></li>
+<!--
+            <li><a href="/+{{ user.username }}/settings">Settings</a></li>
+-->
+            <li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+            {% else %}
             <li><a href="#" ng-click="open('lg')">Log in</a></li>
+<!--
+            <li><a href="/register">Register</a></li>
+-->
+            {% endif %}
             <!-- <li uib-dropdown>
                  <a href="#" uib-dropdown-toggle>Dropdown <b class="caret"></b></a>
                  <ul class="dropdown-menu">

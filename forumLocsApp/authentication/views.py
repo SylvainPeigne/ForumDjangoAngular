@@ -1,6 +1,7 @@
 import json
-from django.contrib.auth import login, authenticate
-from rest_framework import views, status
+
+from django.contrib.auth import login, authenticate, logout
+from rest_framework import views, status, permissions
 from rest_framework.response import Response
 from .serializers import UserSerializer
 
@@ -23,3 +24,12 @@ class LoginView(views.APIView):
                 'status': 'Unauthorized',
                 'message': 'This account has been disabled.'
             }, status=status.HTTP_401_UNAUTHORIZED)
+
+
+class LogoutView(views.APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def post(self, request, format=None):
+        logout(request)
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
