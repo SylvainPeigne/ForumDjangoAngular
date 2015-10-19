@@ -154,7 +154,7 @@ REST_FRAMEWORK = {
 }
 
 if socket.gethostname() == "sylflo.fr":
-    BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static_root/")
+    #BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static_root/")
     DEBUG = TEMPLATE_DEBUG = False
     ALLOWED_HOSTS = ["couture.sylflo.fr", ".sylflo.fr", "sylflo.fr"]
     ADMINS = (
