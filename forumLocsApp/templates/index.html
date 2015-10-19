@@ -14,12 +14,16 @@
        {% endif %}-->
 
 
-<body  style="background-image: url('/media/background.jpg')";>
+<body>
 
 <header>
-{% include 'header.html' %}
-
+    {% include 'header.html' %}
 </header>
+
+<div id="sidebar">
+ {% include 'sidebar.html' %}
+
+</div>
 
 
 <div ui-view>
@@ -32,7 +36,6 @@
 {% include 'javascripts.html' %}
 
 </body>
-
 
 
 </html>

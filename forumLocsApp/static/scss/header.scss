@@ -1,0 +1,44 @@
+html, body, .my-container, #sidebar {
+  height: 100%;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+#sidebar {
+  .my-container {
+    display: table;
+    width: 100%;
+    margin-top: -50px;
+    padding-top: 50px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .row {
+    height: 100%;
+    display: table-row;
+  }
+  .col-md-2.no-float, .col-md-10.no-float {
+    float: none;
+  }
+  .col-md-2 {
+    display: table-cell;
+    background: pink;
+  }
+
+  .col-md-10 {
+     display: table-cell;
+    background: violet;
+  }
+
+}
+
+
