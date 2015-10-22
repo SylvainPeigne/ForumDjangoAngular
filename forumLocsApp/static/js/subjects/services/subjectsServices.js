@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('SubjectsServices')
+        .module(NAME + 'SubjectsServices')
         .factory('Subjects', Subjects);
 
     Subjects.$inject = ['$http'];
@@ -22,12 +22,14 @@
 
         return Subjects;
 
-        function createSubject() {
-
+        function createSubject(name) {
+            return $http.post('/api/subjects/', {
+                name: name
+            });
         }
 
-        function getSubject() {
-
+        function getSubject(id) {
+            return $http.get('/api/subjects/' + id + '/');
         }
 
         function replySubject() {
