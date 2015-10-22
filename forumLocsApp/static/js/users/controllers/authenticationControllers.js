@@ -5,7 +5,6 @@
 (function () {
 
     'use strict';
-
     angular
         .module(NAME + 'UsersControllers')
         .controller('LoginController', LoginController)

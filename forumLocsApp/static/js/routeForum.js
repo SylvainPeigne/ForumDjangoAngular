@@ -26,6 +26,11 @@
                     reload: true
                 })
 
+                .state('subject', {
+                    url:'/subject/:id',
+                    templateUrl: '/static/templates/subject.html'
+                })
+
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 .state('about', {
                     // we'll get to this in a bit
