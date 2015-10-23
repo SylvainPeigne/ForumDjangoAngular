@@ -17,7 +17,7 @@ class Subject(models.Model):
 
 
 class NormalMessage(models.Model):
-    #author = models.ForeignKey(User)
+    author = models.ForeignKey(User, default=None, null=False)
     subject = models.ForeignKey(Subject, default=None, null=False)
     content = models.TextField()
     vote = models.IntegerField(default=0)

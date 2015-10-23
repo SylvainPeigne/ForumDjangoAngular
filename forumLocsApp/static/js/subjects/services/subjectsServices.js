@@ -2,7 +2,7 @@
  * Created by sylflo on 10/22/15.
  */
 
-(function(){
+(function () {
 
     'use strict';
 
@@ -17,7 +17,7 @@
         var Subjects = {
             createSubject: createSubject,
             getSubject: getSubject,
-            replySubject: replySubject
+            newMessageInSubject: newMessageInSubject
         };
 
         return Subjects;
@@ -32,7 +32,12 @@
             return $http.get('/api/subjects/' + id + '/');
         }
 
-        function replySubject() {
+        function newMessageInSubject(idSubject, content) {
+
+            return $http.post('/api/messages/', {
+                idSubject: idSubject,
+                content: content
+            });
 
         }
 

@@ -25,6 +25,8 @@ class SubjectSerializer(serializers.ModelSerializer):
 
 class NormalMessageSerializer(serializers.ModelSerializer):
     subject = SubjectSerializer(read_only=True)
+    author = UserSerializer(read_only=True, required=False)
 
     class Meta:
         model = NormalMessage
+        fields = ('content', 'subject', 'author')

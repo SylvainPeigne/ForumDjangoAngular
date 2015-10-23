@@ -15,7 +15,7 @@ class SubjectViewSet(ModelViewSet):
     serializer_class = SubjectSerializer
 
     def perform_create(self, serializer):
-        category = Category.objects.get(pk=5)
+        category = Category.objects.get(pk=7)
         instance = serializer.save(category=category, author=self.request.user, nb_see=0, nb_message=0)
         return super(SubjectViewSet, self).perform_create(serializer)
 
@@ -25,8 +25,9 @@ class NormalMessageViewSet(ModelViewSet):
     serializer_class = NormalMessageSerializer
 
     def perform_create(self, serializer):
-        subject = Subject.objects.get(pk=5)
-        instance = serializer.save(subject=subject)
+        idSubject = serializer.initial_data['idSubject']
+        subject = Subject.objects.get(pk=idSubject)
+        instance = serializer.save(subject=subject, author=self.request.user)
         return super(NormalMessageViewSet, self).perform_create(serializer)
 
 
@@ -35,9 +36,7 @@ class NormalMessageSubjectViewSet(ViewSet):
     serializer_class = NormalMessage
 
     def list(self, request, subject_pk=None):
-        print("Subject = ", subject_pk)
         queryset = self.queryset.filter(subject=subject_pk)
-        print("queryset = ", queryset)
         serializer = NormalMessageSerializer(queryset, many=True)
         print(serializer.data)
         return Response(serializer.data)
