@@ -35,8 +35,8 @@
 
                .state('show-subject', {
                     url:'/subject/:id',
-                    templateUrl: '/static/templates/subject.html'
-                    //controller: 'SubjectController'
+                    templateUrl: '/static/templates/subject.html',
+                    controller: 'ShowSubjectController'
                 })
 
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================

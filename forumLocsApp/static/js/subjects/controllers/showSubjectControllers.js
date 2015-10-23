@@ -7,11 +7,11 @@
 
     angular
         .module(NAME + 'SubjectsControllers')
-        .controller('SubjectController', SubjectController);
+        .controller('ShowSubjectController', ShowSubjectController);
 
-    SubjectController.$inject = ['$scope', 'Subjects', '$stateParams'];
+    ShowSubjectController.$inject = ['$scope', 'Subjects', '$stateParams'];
 
-    function SubjectController($scope, Subjects, $stateParams) {
+    function ShowSubjectController($scope, Subjects, $stateParams) {
 
         console.log("scope = ", $stateParams.id);
         var id_subject = $stateParams.id;
