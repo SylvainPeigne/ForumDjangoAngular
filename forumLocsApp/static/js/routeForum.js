@@ -26,6 +26,19 @@
                     reload: true
                 })
 
+                .state('create-subject', {
+                    url: '/create-subject',
+                    templateUrl: '/static/templates/subject/create-subject.html',
+                    controller: 'CreateSubjectController'
+
+                })
+
+               .state('show-subject', {
+                    url:'/subject/:id',
+                    templateUrl: '/static/templates/subject.html',
+                    controller: 'ShowSubjectController'
+                })
+
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 .state('about', {
                     // we'll get to this in a bit

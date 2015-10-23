@@ -10,14 +10,14 @@ class Category(models.Model):
 
 class Subject(models.Model):
     category = models.ForeignKey(Category, default=None, null=False)
-    #author = models.ForeignKey(User)
+    author = models.ForeignKey(User, default=None, null=False)
     name = models.CharField(max_length=255)
     nb_see = models.IntegerField(default=0)
     nb_message = models.IntegerField(default=0)
 
 
 class NormalMessage(models.Model):
-    #author = models.ForeignKey(User)
+    author = models.ForeignKey(User, default=None, null=False)
     subject = models.ForeignKey(Subject, default=None, null=False)
     content = models.TextField()
     vote = models.IntegerField(default=0)

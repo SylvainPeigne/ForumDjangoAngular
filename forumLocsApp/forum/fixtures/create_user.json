@@ -4,7 +4,8 @@
     "model": "auth.user",
     "fields": {
       "username": "toto",
-      "password": "toto"
+      "password": "pbkdf2_sha256$20000$7m2HGjeVzC9G$CwsV0IN97tSL2wklJLP0/X78HxByZ82dt3nZBDWORAg="
+
     }
   },
   {
@@ -12,7 +13,8 @@
     "model": "auth.user",
     "fields": {
       "username": "tata",
-      "password": "tata"
+      "password": "pbkdf2_sha256$20000$7m2HGjeVzC9G$CwsV0IN97tSL2wklJLP0/X78HxByZ82dt3nZBDWORAg="
+
     }
   },
   {
@@ -20,7 +22,8 @@
     "model": "auth.user",
     "fields": {
       "username": "titi",
-      "password": "titi"
+      "password": "pbkdf2_sha256$20000$7m2HGjeVzC9G$CwsV0IN97tSL2wklJLP0/X78HxByZ82dt3nZBDWORAg="
+
     }
   },
   {
@@ -28,7 +31,8 @@
     "model": "auth.user",
     "fields": {
       "username": "sylflo",
-      "password": "sylflo"
+      "password": "pbkdf2_sha256$20000$7m2HGjeVzC9G$CwsV0IN97tSL2wklJLP0/X78HxByZ82dt3nZBDWORAg="
+
     }
   }
 ]

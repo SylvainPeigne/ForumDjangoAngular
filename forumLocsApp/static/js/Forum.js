@@ -14,7 +14,9 @@
             'ui.bootstrap.tpls',
             NAME + 'Config',
             NAME + 'Routes',
-            NAME + 'Users'
+            NAME + 'Users',
+            NAME + 'Subjects'
+
         ])
         .run(run);
 
