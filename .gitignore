@@ -3,4 +3,5 @@ forumLocsApp/reports/
 forumLocsApp/node_modules/
 forumLocsApp/static_root/
 forumLocsApp/static/css/
+*.pyc
 
