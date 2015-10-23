@@ -33,12 +33,12 @@
 
                 })
 
-              /*  .state('subject', {
+               .state('show-subject', {
                     url:'/subject/:id',
-                    templateUrl: '/static/templates/subject.html',
-                    controller: 'SubjectController'
+                    templateUrl: '/static/templates/subject.html'
+                    //controller: 'SubjectController'
                 })
-*/
+
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 .state('about', {
                     // we'll get to this in a bit

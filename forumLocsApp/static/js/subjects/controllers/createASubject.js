@@ -10,9 +10,9 @@
         .module(NAME + 'SubjectsControllers')
         .controller('CreateSubjectController', CreateSubjectController);
 
-    CreateSubjectController.$inject = ['$scope', 'Subjects'];
+    CreateSubjectController.$inject = ['$scope', 'Subjects', '$state'];
 
-    function CreateSubjectController($scope, Subjects) {
+    function CreateSubjectController($scope, Subjects, $state) {
 
         var idSubject = 0;
 
@@ -34,7 +34,8 @@
         }
 
         function newMessageInSubjectSuccessFn(data, status, headers, config) {
-            console.log("Success when creating a message");
+            console.log("Success when creating a message idSubjec = ", idSubject);
+            $state.go('show-subject', {id: idSubject})
         }
 
         function newMessageInSubjectErrorFn(data, status, headers, config) {
