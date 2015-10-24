@@ -17,7 +17,8 @@
         var Subjects = {
             createSubject: createSubject,
             getSubject: getSubject,
-            newMessageInSubject: newMessageInSubject
+            newMessageInSubject: newMessageInSubject,
+            getAllMessagesInSubject: getAllMessagesInSubject
         };
 
         return Subjects;
@@ -39,6 +40,10 @@
                 content: content
             });
 
+        }
+
+        function getAllMessagesInSubject(idSubject) {
+            return $http.get('/api/subjects/' + idSubject + '/messages/');
         }
 
     }

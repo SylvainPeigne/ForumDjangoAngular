@@ -29,4 +29,4 @@ class NormalMessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = NormalMessage
-        fields = ('content', 'subject', 'author')
+        fields = ('id', 'content', 'subject', 'author')

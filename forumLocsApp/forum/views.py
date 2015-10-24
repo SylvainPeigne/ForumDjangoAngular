@@ -34,9 +34,14 @@ class NormalMessageViewSet(ModelViewSet):
 class NormalMessageSubjectViewSet(ViewSet):
     queryset = NormalMessage.objects.select_related('subject').all()
     serializer_class = NormalMessage
+    paginate_by = 10
 
     def list(self, request, subject_pk=None):
-        queryset = self.queryset.filter(subject=subject_pk)
+        str_split = subject_pk.split("-")
+        subject_pk = str_split[0]
+        nb_pagination = str_split[1]
+
+        value = int(nb_pagination) * self.paginate_by
+        queryset = self.queryset.filter(subject=subject_pk)[value - self.paginate_by:value]
         serializer = NormalMessageSerializer(queryset, many=True)
-        print(serializer.data)
         return Response(serializer.data)

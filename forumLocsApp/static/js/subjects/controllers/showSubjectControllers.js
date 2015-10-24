@@ -16,29 +16,7 @@
         console.log("scope = ", $stateParams.id);
         var id_subject = $stateParams.id;
 
-        Subjects.getSubject(id_subject).then(getSubjectSuccessFn, getSubjectErrorFn);
-
-        function getSubjectSuccessFn(data, status, headers, config) {
-            console.log("Succces get Subject = ", data.data);
-        }
-
-        function getSubjectErrorFn(data, status, headers, config) {
-            console.error("Epic failure get Subject");
-        }
-
-        $scope.create = function() {
-
-            console.log("in function");
-            Subjects.createSubject($scope.name).then(createSubjectSuccessFn, createSubjectErrorFn);
-
-            function createSubjectSuccessFn(data, status, headers, config) {
-                console.log("success creating subject data = ", data.data);
-            }
-
-            function createSubjectErrorFn(data, status, headers, config) {
-                console.error('Epic failure creating subject !');
-            }
-        }
+        Subjects.getAllMessagesInSubject(42, 1);
 
     }
 

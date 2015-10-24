@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'rest_framework_swagger',
     'djangobower',
     'forum',
+    'autofixture'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -143,18 +144,22 @@ BOWER_INSTALLED_APPS = (
     'angular-ui-router',
     'angular-route',
     'bootstrap',
-    'angular-bootstrap'
+    'angular-bootstrap',
 )
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    )
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1
 }
 
+
+
 if socket.gethostname() == "sylflo.fr":
-    #BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static_root/")
+    # BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static_root/")
     DEBUG = TEMPLATE_DEBUG = False
     ALLOWED_HOSTS = ["couture.sylflo.fr", ".sylflo.fr", "sylflo.fr"]
     ADMINS = (
