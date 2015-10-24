@@ -14,10 +14,20 @@
     function ShowSubjectController($scope, Subjects, $stateParams) {
 
         console.log("scope = ", $stateParams.id);
-        var id_subject = $stateParams.id;
+        var idSubject = $stateParams.idSubject;
+        var idPage = $stateParams.idPage;
 
-        Subjects.getAllMessagesInSubject(42, 1);
+        Subjects.getAllMessagesInSubject(idSubject, idPage).then(getAllMessagesInSubjectSuccessFn,
+        getAllMessagesInSubjectErrorFn);
 
+        function getAllMessagesInSubjectSuccessFn(data, status, headers, config) {
+            console.log("getting subject ", data.data);
+            $scope.messages = data.data;
+        }
+
+        function getAllMessagesInSubjectErrorFn(data, status, headers, config) {
+            console.error('Epic failure when getting subject');
+        }
     }
 
 })();

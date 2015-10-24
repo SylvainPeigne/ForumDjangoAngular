@@ -1,8 +1,11 @@
 [
   {
-    "id": 7,
-    "name": "android",
-    "description": "tuto",
-    "color": "green"
+    "pk": 7,
+    "model": "forum.category",
+    "fields": {
+      "name": "android",
+      "description": "tuto",
+      "color": "green"
+    }
   }
 ]

@@ -34,8 +34,8 @@
                 })
 
                .state('show-subject', {
-                    url:'/subject/:id',
-                    templateUrl: '/static/templates/subject.html',
+                    url:'/subject/:idSubject/:idPage',
+                    templateUrl: '/static/templates/subject/subject.html',
                     controller: 'ShowSubjectController'
                 })
 

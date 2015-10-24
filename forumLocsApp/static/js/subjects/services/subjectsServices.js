@@ -42,8 +42,9 @@
 
         }
 
-        function getAllMessagesInSubject(idSubject) {
-            return $http.get('/api/subjects/' + idSubject + '/messages/');
+        function getAllMessagesInSubject(idSubject, idPage) {
+            var param = idSubject + "-" + idPage;
+            return $http.get('/api/subjects/' + param + '/messages/');
         }
 
     }
