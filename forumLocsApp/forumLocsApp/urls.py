@@ -21,7 +21,7 @@ from rest_framework_nested import routers
 
 from .views import IndexView
 from authentication.views import LoginView, LogoutView
-from forum.views import CategoryViewSet, SubjectViewSet, NormalMessageViewSet, NormalMessageSubjectViewSet
+from forum.views import CategoryViewSet, SubjectViewSet, NormalMessageViewSet, NormalMessagePaginateSubjectViewSet, GetNumberPageInSubjectViewSet
 
 
 router = routers.SimpleRouter()
@@ -32,7 +32,7 @@ router.register(r'messages', NormalMessageViewSet)
 users_router = routers.NestedSimpleRouter(
     router, r'subjects', lookup='subject'
 )
-users_router.register(r'messages', NormalMessageSubjectViewSet)
+users_router.register(r'messages', NormalMessagePaginateSubjectViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -43,6 +43,7 @@ urlpatterns = [
 
     url(r'^api/', include(router.urls)),
 
+    url(r'^api/test/([0-9]+)/$', GetNumberPageInSubjectViewSet.as_view()),
     url(r'^api/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/auth/logout/$', LogoutView.as_view(), name='logout')
 ]

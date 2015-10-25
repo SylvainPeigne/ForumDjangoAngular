@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .models import Category, Subject, NormalMessage
 from .serializers import CategorySerializer, SubjectSerializer, NormalMessageSerializer
@@ -31,7 +32,7 @@ class NormalMessageViewSet(ModelViewSet):
         return super(NormalMessageViewSet, self).perform_create(serializer)
 
 
-class NormalMessageSubjectViewSet(ViewSet):
+class NormalMessagePaginateSubjectViewSet(ViewSet):
     queryset = NormalMessage.objects.select_related('subject').all()
     serializer_class = NormalMessage
     paginate_by = 10
@@ -45,3 +46,10 @@ class NormalMessageSubjectViewSet(ViewSet):
         queryset = self.queryset.filter(subject=subject_pk)[value - self.paginate_by:value]
         serializer = NormalMessageSerializer(queryset, many=True)
         return Response(serializer.data)
+
+
+class GetNumberPageInSubjectViewSet(APIView):
+    paginate_by = 10
+
+    def get(self, request, subject_pk=None):
+        return Response(NormalMessage.objects.filter(subject=subject_pk).count() / 10)
