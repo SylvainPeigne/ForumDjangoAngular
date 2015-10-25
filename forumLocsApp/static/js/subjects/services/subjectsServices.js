@@ -18,7 +18,8 @@
             createSubject: createSubject,
             getSubject: getSubject,
             newMessageInSubject: newMessageInSubject,
-            getAllMessagesInSubject: getAllMessagesInSubject
+            getAllMessagesInSubject: getAllMessagesInSubject,
+            getNbPageInSubject: getNbPageInSubject
         };
 
         return Subjects;
@@ -45,6 +46,10 @@
         function getAllMessagesInSubject(idSubject, idPage) {
             var param = idSubject + "-" + idPage;
             return $http.get('/api/subjects/' + param + '/messages/');
+        }
+
+        function getNbPageInSubject(idSubject) {
+            return $http.get('/api/subjects/nb-message/' + idSubject + '/')
         }
 
     }

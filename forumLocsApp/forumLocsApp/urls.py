@@ -43,7 +43,7 @@ urlpatterns = [
 
     url(r'^api/', include(router.urls)),
 
-    url(r'^api/test/([0-9]+)/$', GetNumberPageInSubjectViewSet.as_view()),
+    url(r'^api/subjects/nb-message/(?P<subject_pk>[0-9]+)/$', GetNumberPageInSubjectViewSet.as_view()),
     url(r'^api/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/auth/logout/$', LogoutView.as_view(), name='logout')
 ]

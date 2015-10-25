@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import status
 
 from .models import Category, Subject, NormalMessage
 from .serializers import CategorySerializer, SubjectSerializer, NormalMessageSerializer
@@ -52,4 +53,12 @@ class GetNumberPageInSubjectViewSet(APIView):
     paginate_by = 10
 
     def get(self, request, subject_pk=None):
-        return Response(NormalMessage.objects.filter(subject=subject_pk).count() / 10)
+        nb_message = NormalMessage.objects.filter(subject=subject_pk).count() / 10
+
+        if nb_message != 0:
+            return Response(nb_message)
+
+        return Response({
+            'status': 'Bad request',
+            'message': 'This subject does not exist'
+        }, status=status.HTTP_404_NOT_FOUND)

@@ -17,11 +17,21 @@
         var idSubject = $stateParams.idSubject;
         var idPage = $stateParams.idPage;
 
-        Subjects.getAllMessagesInSubject(idSubject, idPage).then(getAllMessagesInSubjectSuccessFn,
-        getAllMessagesInSubjectErrorFn);
+        Subjects.getNbPageInSubject(idSubject).then(getNbPageInSubjectSuccessFn, getNbPageInSubjectErrorFn);
+
+        function getNbPageInSubjectSuccessFn(data, status, headers, config) {
+            console.log("Succes geting nb page in the subejct ", data.data);
+            Subjects.getAllMessagesInSubject(idSubject, idPage).then(getAllMessagesInSubjectSuccessFn,
+                getAllMessagesInSubjectErrorFn);
+
+        }
+
+        function getNbPageInSubjectErrorFn(data, status, headers, config) {
+            console.error('Error when getting page in a subject', data.data);
+        }
+
 
         function getAllMessagesInSubjectSuccessFn(data, status, headers, config) {
-            console.log("getting subject ", data.data);
             $scope.messages = data.data;
         }
 
