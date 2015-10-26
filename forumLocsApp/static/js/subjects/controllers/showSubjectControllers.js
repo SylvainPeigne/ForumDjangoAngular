@@ -9,18 +9,17 @@
         .module(NAME + 'SubjectsControllers')
         .controller('ShowSubjectController', ShowSubjectController);
 
-    ShowSubjectController.$inject = ['$scope', 'Subjects', '$stateParams'];
+    ShowSubjectController.$inject = ['$scope', 'Subjects', '$stateParams', '$state'];
 
-    function ShowSubjectController($scope, Subjects, $stateParams) {
+    function ShowSubjectController($scope, Subjects, $stateParams, $state) {
 
-        console.log("scope = ", $stateParams.id);
         var idSubject = $stateParams.idSubject;
         var idPage = $stateParams.idPage;
 
         Subjects.getNbPageInSubject(idSubject).then(getNbPageInSubjectSuccessFn, getNbPageInSubjectErrorFn);
 
         function getNbPageInSubjectSuccessFn(data, status, headers, config) {
-            console.log("Succes geting nb page in the subejct ", data.data);
+            showPagination(data.data);
             Subjects.getAllMessagesInSubject(idSubject, idPage).then(getAllMessagesInSubjectSuccessFn,
                 getAllMessagesInSubjectErrorFn);
 
@@ -38,6 +37,22 @@
         function getAllMessagesInSubjectErrorFn(data, status, headers, config) {
             console.error('Epic failure when getting subject');
         }
+
+        function showPagination(nbPage) {
+            $scope.totalItems = nbPage * 10;
+            $scope.currentPage = idPage;
+
+            $scope.pageChanged = function () {
+                console.log('Page changed to: ' + $scope.currentPage);
+                $state.go('show-subject', { 'idSubject': idSubject, 'idPage': $scope.currentPage });
+
+            };
+
+
+        }
+
+
     }
 
-})();
+})
+();
