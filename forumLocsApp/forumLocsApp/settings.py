@@ -145,6 +145,7 @@ BOWER_INSTALLED_APPS = (
     'angular-route',
     'bootstrap',
     'angular-bootstrap',
+    'angular-cookies'
 )
 
 REST_FRAMEWORK = {

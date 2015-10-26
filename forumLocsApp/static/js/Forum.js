@@ -11,6 +11,7 @@
         [
             'ui.router',
             'ui.bootstrap',
+            'ngCookies',
             'ui.bootstrap.tpls',
             NAME + 'Config',
             NAME + 'Routes',

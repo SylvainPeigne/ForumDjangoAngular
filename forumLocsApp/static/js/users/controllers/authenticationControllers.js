@@ -36,6 +36,7 @@
 
             function logoutSuccessFn(data, status, headers, config) {
                 console.log("logout Success", data.data);
+                Authentication.unauthenticate();
                 $window.location.reload('/');
 
             }
@@ -60,6 +61,7 @@
 
             function loginSuccessFn(data, status, headers, config) {
                 console.log("data success = ", data);
+                Authentication.setAuthenticatedAccount(data.data);
                 $modalInstance.close();
                 $window.location.reload('/');
 
