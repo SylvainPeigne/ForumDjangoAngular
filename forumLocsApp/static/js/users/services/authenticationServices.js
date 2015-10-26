@@ -10,9 +10,9 @@
         .module(NAME + 'UsersServices')
         .factory('Authentication', Authentication);
 
-    Authentication.$inject = ['$http', '$cookies'];
+    Authentication.$inject = ['$http', '$cookies', '$localStorage'];
 
-    function Authentication($http, $cookies) {
+    function Authentication($http, $cookies, $localStorage) {
 
         var Authentication = {
             login: login,
@@ -46,11 +46,12 @@
          * @memberOf thinkster.authentication.services.Authentication
          */
         function getAuthenticatedAccount() {
-            if (!$cookies.authenticatedAccount) {
+
+            if (!$localStorage.authenticatedAccount) {
                 return;
             }
 
-            return JSON.parse($cookies.authenticatedAccount);
+            return JSON.parse($localStorage.authenticatedAccount);
         }
 
         /**
@@ -60,7 +61,7 @@
          * @memberOf thinkster.authentication.services.Authentication
          */
         function isAuthenticated() {
-            return !!$cookies.authenticatedAccount;
+            return !!$localStorage.authenticatedAccount;
         }
 
         /**
@@ -71,7 +72,7 @@
          * @memberOf thinkster.authentication.services.Authentication
          */
         function setAuthenticatedAccount(account) {
-            $cookies.authenticatedAccount = JSON.stringify(account);
+            $localStorage.authenticatedAccount = JSON.stringify(account)
         }
 
         /**
@@ -81,7 +82,7 @@
          * @memberOf thinkster.authentication.services.Authentication
          */
         function unauthenticate() {
-            delete $cookies.authenticatedAccount;
+            delete  $localStorage.authenticatedAccount;
         }
     }
 })();

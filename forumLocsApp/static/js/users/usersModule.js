@@ -1,7 +1,7 @@
 /**
  * Created by sylflo on 10/16/15.
  */
-(function(){
+(function () {
 
     'use strict';
 
@@ -9,5 +9,5 @@
         .module(NAME + 'Users', [NAME + 'UsersControllers', NAME + 'UsersServices']);
 
     angular.module(NAME + 'UsersControllers', []);
-    angular.module(NAME + 'UsersServices', []);
+    angular.module(NAME + 'UsersServices', ['ngStorage',]);
 })();

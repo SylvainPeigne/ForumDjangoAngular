@@ -145,7 +145,7 @@ BOWER_INSTALLED_APPS = (
     'angular-route',
     'bootstrap',
     'angular-bootstrap',
-    'angular-cookies'
+    'ngstorage'
 )
 
 REST_FRAMEWORK = {
@@ -156,8 +156,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 1
 }
-
-
 
 if socket.gethostname() == "sylflo.fr":
     # BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static_root/")

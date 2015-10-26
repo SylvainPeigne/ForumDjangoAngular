@@ -9,12 +9,18 @@
         .module(NAME + 'SubjectsControllers')
         .controller('ShowSubjectController', ShowSubjectController);
 
-    ShowSubjectController.$inject = ['$scope', 'Subjects', '$stateParams', '$state'];
+    ShowSubjectController.$inject = ['$scope', 'Subjects', '$stateParams', '$state', 'Authentication'];
 
-    function ShowSubjectController($scope, Subjects, $stateParams, $state) {
+    function ShowSubjectController($scope, Subjects, $stateParams, $state, Authentication) {
 
         var idSubject = $stateParams.idSubject;
         var idPage = $stateParams.idPage;
+
+
+
+        var authenticatedAccount = Authentication.getAuthenticatedAccount();
+       // console.log("Account = ", authenticatedAccount);
+
 
         Subjects.getNbPageInSubject(idSubject).then(getNbPageInSubjectSuccessFn, getNbPageInSubjectErrorFn);
 
