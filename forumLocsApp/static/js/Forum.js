@@ -11,7 +11,6 @@
         [
             'ui.router',
             'ui.bootstrap',
-            'ngCookies',
             'ngStorage',
             'ui.bootstrap.tpls',
             NAME + 'Config',
