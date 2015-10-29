@@ -16,8 +16,7 @@
         var vm = this;
         var idSubject = $stateParams.idSubject;
         var idPage = $stateParams.idPage;
-
-
+        $scope.idSubject = idSubject; //Needeed for inheritance in the form for reply a subject
 
         vm.authenticateAccount = Authentication.getAuthenticatedAccount();
 
@@ -49,7 +48,7 @@
             vm.currentPage = idPage;
 
             vm.pageChanged = function () {
-                $state.go('show-subject', { 'idSubject': idSubject, 'idPage': vm.currentPage });
+                $state.go('show-subject', {'idSubject': idSubject, 'idPage': vm.currentPage});
 
             };
 
