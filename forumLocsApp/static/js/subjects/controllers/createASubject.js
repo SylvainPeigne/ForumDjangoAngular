@@ -14,10 +14,11 @@
 
     function CreateSubjectController($scope, Subjects, $state) {
 
+        var vm = this;
         var idSubject = 0;
 
-        $scope.createSubject = function () {
-            Subjects.createSubject($scope.name_subject).then(createSubjectSuccessFn, createSubjectErrorFn);
+        vm.formSubject = function () {
+            Subjects.createSubject(vm.name_subject).then(createSubjectSuccessFn, createSubjectErrorFn);
 
 
         };
@@ -26,7 +27,7 @@
         function createSubjectSuccessFn(data, status, headers, config) {
             console.log("Create subject succes ", data.data);
             idSubject = data.data.id;
-            Subjects.newMessageInSubject(idSubject, $scope.name_subject).then(newMessageInSubjectSuccessFn, newMessageInSubjectErrorFn)
+            Subjects.newMessageInSubject(idSubject, vm.name_subject).then(newMessageInSubjectSuccessFn, newMessageInSubjectErrorFn)
         }
 
         function createSubjectErrorFn(data, status, headers, config) {
@@ -35,7 +36,7 @@
 
         function newMessageInSubjectSuccessFn(data, status, headers, config) {
             console.log("Success when creating a message idSubjec = ", idSubject);
-            $state.go('show-subject', {id: idSubject})
+            $state.go('show-subject', {'idSubject': idSubject, 'idPage': 1});
         }
 
         function newMessageInSubjectErrorFn(data, status, headers, config) {

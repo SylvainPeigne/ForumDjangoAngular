@@ -29,7 +29,8 @@
                 .state('create-subject', {
                     url: '/create-subject',
                     templateUrl: '/static/templates/subject/create-subject.html',
-                    controller: 'CreateSubjectController'
+                    controller: 'CreateSubjectController',
+                    controllerAs: 'createSubject'
 
                 })
 
