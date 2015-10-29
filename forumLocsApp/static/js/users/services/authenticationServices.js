@@ -10,9 +10,9 @@
         .module(NAME + 'UsersServices')
         .factory('Authentication', Authentication);
 
-    Authentication.$inject = ['$http', '$cookies', '$localStorage'];
+    Authentication.$inject = ['$http', '$localStorage'];
 
-    function Authentication($http, $cookies, $localStorage) {
+    function Authentication($http, $localStorage) {
 
         var Authentication = {
             login: login,
