@@ -58,7 +58,6 @@
         $scope.logUser = function () {
             Authentication.login($scope.username, $scope.password).then(loginSuccessFn, loginErrorFn);
 
-
             function loginSuccessFn(data, status, headers, config) {
                 console.log("data success = ", data);
                 Authentication.setAuthenticatedAccount(data.data);

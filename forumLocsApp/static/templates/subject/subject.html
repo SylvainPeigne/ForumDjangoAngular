@@ -18,7 +18,8 @@
 
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea ng-model="message_content" class="form-control" id="content">
+                            <textarea ng-init="newContentMessage  = contentMessage" ng-model="newContentMessage"
+                                      class="form-control" id="content">
                             </textarea>
                         </div>
 
@@ -29,7 +30,7 @@
                     </div>
                 </form>
             </script>
-            <a href="#" ng-click="open('large', message.id)"> Edit </a>
+            <a href="#" ng-click="open('large', message)"> Edit </a>
 
         </div>
     </div>
