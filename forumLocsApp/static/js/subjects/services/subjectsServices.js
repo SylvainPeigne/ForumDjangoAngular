@@ -19,7 +19,8 @@
             getSubject: getSubject,
             newMessageInSubject: newMessageInSubject,
             getAllMessagesInSubject: getAllMessagesInSubject,
-            getNbPageInSubject: getNbPageInSubject
+            getNbPageInSubject: getNbPageInSubject,
+            editMessageInSubject: editMessageInSubject
         };
 
         return Subjects;
@@ -50,6 +51,13 @@
 
         function getNbPageInSubject(idSubject) {
             return $http.get('/api/subjects/nb-message/' + idSubject + '/')
+        }
+
+        function editMessageInSubject(idMessage, content) {
+            return $http.put('/api/messages/' + idMessage + '/', {
+                pk: idMessage,
+                content: content
+            });
         }
 
     }

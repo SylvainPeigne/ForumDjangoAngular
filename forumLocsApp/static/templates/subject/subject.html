@@ -8,9 +8,30 @@
     {{message.content}}
 
     <div ng-if="showSubject.authenticateAccount !=  undefined">
-        <p ng-controller="EditMessageInSubjectController">
-            <a href="#" ng-click="edit()"> Edit </a>
-        </p>
+        <div ng-controller="EditMessageInSubjectController">
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                    <h3 class="modal-title">I'm a modal!</h3>
+                </div>
+                <form ng-submit="editPost()">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea ng-model="message_content" class="form-control" id="content">
+                            </textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                    </div>
+                </form>
+            </script>
+            <a href="#" ng-click="open('large', message.id)"> Edit </a>
+
+        </div>
     </div>
 
 </ul>
