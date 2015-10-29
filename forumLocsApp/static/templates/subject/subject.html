@@ -1,26 +1,60 @@
 <h1>SUbject</h1>
 
 
-<ul ng-repeat="message in messages">
+<ul ng-repeat="message in showSubject.messages">
 
-     {{message.id}}
-    {{message.author.username}}
-    {{message.content}}
+    {{ message.id }}
+    {{ message.author.username }}
+    {{ message.content }}
+   upvote{{ message.upvote }}
+    downvote{{ message.downvote }}
+
+
+    <div ng-if="showSubject.authenticateAccount !=  undefined">
+        <div ng-controller="EditMessageInSubjectController">
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                    <h3 class="modal-title">I'm a modal!</h3>
+                </div>
+                <form ng-submit="editPost()">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea ng-init="newContentMessage  = contentMessage" ng-model="newContentMessage"
+                                      class="form-control" id="content">
+                            </textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                    </div>
+                </form>
+            </script>
+            <a href="#" ng-click="open('large', message)"> Edit </a>
+
+        </div>
+    </div>
 
 </ul>
 
 <h4>Default</h4>
-<uib-pagination max-size="5" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+<uib-pagination max-size="5" total-items="showSubject.totalItems" ng-model="showSubject.currentPage"
+                ng-change="showSubject.pageChanged()"></uib-pagination>
 
+<div ng-controller="ReplySubjectController as replySubject">
 
+    <form ng-submit="replySubject.sendReply()">
 
-<form ng-submit="create()">
+        <input type="text" ng-model="replySubject.content"/>
 
-    <input type="text" ng-model="name"/>
+        <button type="submit" value="submit">Submit</button>
 
-    <button type="submit" value="submit">Submit</button>
+    </form>
 
-</form>
+</div>
 
 
 

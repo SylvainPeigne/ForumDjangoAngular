@@ -10,11 +10,12 @@
         .controller('LoginController', LoginController)
         .controller('ModalInstanceController', ModalInstanceController);
 
-    LoginController.$inject = ['$scope', '$uibModal', '$window', 'Authentication'];
+    LoginController.$inject = ['$scope', '$uibModal', '$window', '$state', 'Authentication'];
 
-    function LoginController($scope, $uibModal, $window, Authentication) {
+    function LoginController($scope, $uibModal, $window, $state, Authentication) {
 
         $scope.animationsEnabled = true;
+
         $scope.open = function (size) {
 
             var modalInstance = $uibModal.open({
@@ -58,12 +59,11 @@
         $scope.logUser = function () {
             Authentication.login($scope.username, $scope.password).then(loginSuccessFn, loginErrorFn);
 
-
             function loginSuccessFn(data, status, headers, config) {
                 console.log("data success = ", data);
                 Authentication.setAuthenticatedAccount(data.data);
                 $modalInstance.close();
-               // $window.location.reload('/');
+                $window.location.reload('/');
 
             }
 

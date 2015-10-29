@@ -29,14 +29,16 @@
                 .state('create-subject', {
                     url: '/create-subject',
                     templateUrl: '/static/templates/subject/create-subject.html',
-                    controller: 'CreateSubjectController'
+                    controller: 'CreateSubjectController',
+                    controllerAs: 'createSubject'
 
                 })
 
                .state('show-subject', {
                     url:'/subject/:idSubject/:idPage',
                     templateUrl: '/static/templates/subject/subject.html',
-                    controller: 'ShowSubjectController'
+                    controller: 'ShowSubjectController',
+                    controllerAs: 'showSubject'
                 })
 
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
