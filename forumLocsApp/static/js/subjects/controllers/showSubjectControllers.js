@@ -19,8 +19,7 @@
 
 
 
-        var authenticatedAccount = Authentication.getAuthenticatedAccount();
-       // console.log("Account = ", authenticatedAccount);
+        vm.authenticateAccount = Authentication.getAuthenticatedAccount();
 
 
         Subjects.getNbPageInSubject(idSubject).then(getNbPageInSubjectSuccessFn, getNbPageInSubjectErrorFn);

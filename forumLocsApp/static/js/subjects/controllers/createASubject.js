@@ -20,7 +20,6 @@
         vm.formSubject = function () {
             Subjects.createSubject(vm.name_subject).then(createSubjectSuccessFn, createSubjectErrorFn);
 
-
         };
 
 

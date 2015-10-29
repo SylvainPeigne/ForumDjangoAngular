@@ -63,7 +63,7 @@
                 console.log("data success = ", data);
                 Authentication.setAuthenticatedAccount(data.data);
                 $modalInstance.close();
-               // $window.location.reload('/');
+                $window.location.reload('/');
 
             }
 

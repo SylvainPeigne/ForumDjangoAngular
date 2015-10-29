@@ -3,15 +3,21 @@
 
 <ul ng-repeat="message in showSubject.messages">
 
-     {{message.id}}
+    {{message.id}}
     {{message.author.username}}
     {{message.content}}
+
+    <div ng-if="showSubject.authenticateAccount !=  undefined">
+        <p ng-controller="EditMessageInSubjectController">
+            <a href="#" ng-click="edit()"> Edit </a>
+        </p>
+    </div>
 
 </ul>
 
 <h4>Default</h4>
-<uib-pagination max-size="5" total-items="showSubject.totalItems" ng-model="showSubject.currentPage" ng-change="showSubject.pageChanged()"></uib-pagination>
-
+<uib-pagination max-size="5" total-items="showSubject.totalItems" ng-model="showSubject.currentPage"
+                ng-change="showSubject.pageChanged()"></uib-pagination>
 
 
 <form ng-submit="showSubject.create()">
