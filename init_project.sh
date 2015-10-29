@@ -15,9 +15,9 @@ cd -
 forumLocsApp/manage.py flush << 'EOF'
 yes
 EOF
+forumLocsApp/manage.py makemigrations
+forumLocsApp/manage.py migrate
 forumLocsApp/manage.py loaddata create_user
 forumLocsApp/manage.py loaddata create_categories
 forumLocsApp/manage.py init_forum
-forumLocsApp/manage.py makemigrations
-forumLocsApp/manage.py migrate
 echo "Now just run workon forumLocsapp and ./forumLocsApp/manage.py runserver"
