@@ -9,5 +9,5 @@
         .module(NAME + 'Users', [NAME + 'UsersControllers', NAME + 'UsersServices']);
 
     angular.module(NAME + 'UsersControllers', []);
-    angular.module(NAME + 'UsersServices', ['ngStorage',]);
+    angular.module(NAME + 'UsersServices', []);
 })();
