@@ -13,6 +13,7 @@
 
     function ShowSubjectController($scope, Subjects, $stateParams, $state, Authentication) {
 
+        var vm = this;
         var idSubject = $stateParams.idSubject;
         var idPage = $stateParams.idPage;
 
@@ -37,7 +38,7 @@
 
 
         function getAllMessagesInSubjectSuccessFn(data, status, headers, config) {
-            $scope.messages = data.data;
+            vm.messages = data.data;
         }
 
         function getAllMessagesInSubjectErrorFn(data, status, headers, config) {
@@ -45,12 +46,11 @@
         }
 
         function showPagination(nbPage) {
-            $scope.totalItems = nbPage * 10;
-            $scope.currentPage = idPage;
+            vm.totalItems = nbPage * 10;
+            vm.currentPage = idPage;
 
-            $scope.pageChanged = function () {
-                console.log('Page changed to: ' + $scope.currentPage);
-                $state.go('show-subject', { 'idSubject': idSubject, 'idPage': $scope.currentPage });
+            vm.pageChanged = function () {
+                $state.go('show-subject', { 'idSubject': idSubject, 'idPage': vm.currentPage });
 
             };
 
