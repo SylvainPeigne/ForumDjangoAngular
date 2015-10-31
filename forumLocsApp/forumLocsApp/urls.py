@@ -21,7 +21,7 @@ from rest_framework_nested import routers
 
 from .views import IndexView
 from authentication.views import LoginView, LogoutView
-from forum.views import CategoryViewSet, SubjectViewSet, NormalMessageViewSet, NormalMessagePaginateSubjectViewSet, GetNumberPageInSubjectViewSet
+from forum.views import CategoryViewSet, SubjectViewSet, NormalMessageViewSet, NormalMessagePaginateSubjectViewSet, GetNumberPageInSubjectViewSet, GetUserById
 
 
 router = routers.SimpleRouter()
@@ -45,7 +45,9 @@ urlpatterns = [
 
     url(r'^api/subjects/nb-message/(?P<subject_pk>[0-9]+)/$', GetNumberPageInSubjectViewSet.as_view()),
     url(r'^api/auth/login/$', LoginView.as_view(), name='login'),
-    url(r'^api/auth/logout/$', LogoutView.as_view(), name='logout')
+    url(r'^api/auth/logout/$', LogoutView.as_view(), name='logout'),
+
+    url(r'^api/users/(?P<pk>[0-9]+)$', GetUserById.as_view(), name='getuserid'),
 ]
 
 if settings.DEBUG:

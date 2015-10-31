@@ -2,10 +2,12 @@ from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework import generics
 
 from .models import Category, Subject, NormalMessage
 from .serializers import CategorySerializer, SubjectSerializer, NormalMessageSerializer
-
+from authentication.serializers import UserSerializer
+from django.contrib.auth.models import User
 
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.order_by('id')
@@ -62,3 +64,13 @@ class GetNumberPageInSubjectViewSet(APIView):
             'status': 'Bad request',
             'message': 'This subject does not exist'
         }, status=status.HTTP_404_NOT_FOUND)
+
+class GetUserById(generics.RetrieveAPIView):
+    queryset = User.objects.order_by('id')
+    model = User
+    serializer_class = UserSerializer
+
+    def retrieve(self, request, pk=None):
+        if (request.user and pk == "0"):
+            return Response(UserSerializer(request.user).data)
+        return super(GetUserById, self).retrieve(request, pk)
