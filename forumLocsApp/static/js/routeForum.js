@@ -22,7 +22,7 @@
                 .state('profile', {
                     url: '/profile',
                     templateUrl: '/static/templates/profile.html',
-                   // controller: 'ProfileController',
+                    controller: 'ProfileController',
                     reload: true
                 })
 
