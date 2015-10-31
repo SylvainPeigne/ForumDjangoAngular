@@ -3,9 +3,12 @@
 
 <ul ng-repeat="message in showSubject.messages">
 
-    {{message.id}}
-    {{message.author.username}}
-    {{message.content}}
+    {{ message.id }}
+    {{ message.author.username }}
+    {{ message.content }}
+   upvote{{ message.upvote }}
+    downvote{{ message.downvote }}
+
 
     <div ng-if="showSubject.authenticateAccount !=  undefined">
         <div ng-controller="EditMessageInSubjectController">
@@ -41,14 +44,17 @@
 <uib-pagination max-size="5" total-items="showSubject.totalItems" ng-model="showSubject.currentPage"
                 ng-change="showSubject.pageChanged()"></uib-pagination>
 
+<div ng-controller="ReplySubjectController as replySubject">
 
-<form ng-submit="showSubject.create()">
+    <form ng-submit="replySubject.sendReply()">
 
-    <input type="text" ng-model="showSubject.name"/>
+        <input type="text" ng-model="replySubject.content"/>
 
-    <button type="submit" value="submit">Submit</button>
+        <button type="submit" value="submit">Submit</button>
 
-</form>
+    </form>
+
+</div>
 
 
 

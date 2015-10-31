@@ -1,13 +1,17 @@
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import status
 from rest_framework import generics
 
 from .models import Category, Subject, NormalMessage
 from .serializers import CategorySerializer, SubjectSerializer, NormalMessageSerializer
 from authentication.serializers import UserSerializer
 from django.contrib.auth.models import User
+
+from rest_framework import status, permissions
+from .permissions import  IsAuthorOfMessage
+
+
 
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.order_by('id')
@@ -27,6 +31,11 @@ class SubjectViewSet(ModelViewSet):
 class NormalMessageViewSet(ModelViewSet):
     queryset = NormalMessage.objects.order_by('id')
     serializer_class = NormalMessageSerializer
+
+    def get_permissions(self):
+        if self.request.method in permissions.SAFE_METHODS:
+            return permissions.AllowAny(),
+        return permissions.IsAuthenticated(), IsAuthorOfMessage(),
 
     def perform_create(self, serializer):
         idSubject = serializer.initial_data['idSubject']
