@@ -5,3 +5,4 @@ forumLocsApp/static_root/
 forumLocsApp/static/css/
 *.pyc
 
+forumLocsApp/db.sqlite3
