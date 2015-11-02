@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 
 
 class UserForum(models.Model):
-    User = models.ForeignKey(default=None, null=True)
+    User = models.ForeignKey(User, default=None, null=False)
     date_joined = models.DateTimeField(auto_now_add=True)
-    date_last_connected = models.DateTimeField(auto_add=True)
+    date_last_connected = models.DateTimeField(auto_now=True)
     messages_written = models.IntegerField()
     url_avatar = models.URLField(default="/media/user_avatars/default/default.jpg")
     score = models.IntegerField()
