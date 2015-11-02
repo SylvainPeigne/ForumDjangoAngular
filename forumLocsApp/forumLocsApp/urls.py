@@ -21,7 +21,15 @@ from rest_framework_nested import routers
 
 from .views import IndexView
 from authentication.views import LoginView, LogoutView
-from forum.views import CategoryViewSet, SubjectViewSet, NormalMessageViewSet, NormalMessagePaginateSubjectViewSet, GetNumberPageInSubjectViewSet, GetUserById
+from forum.views import (
+    CategoryViewSet,
+    SubjectViewSet,
+    NormalMessageViewSet,
+    NormalMessagePaginateSubjectViewSet,
+    GetNumberPageInSubjectViewSet,
+    GetUserById,
+    VoteMessageApiView
+)
 
 
 router = routers.SimpleRouter()
@@ -38,7 +46,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/', include('rest_framework_swagger.urls')),
 
-    #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/', include(users_router.urls)),
 
     url(r'^api/', include(router.urls)),
@@ -48,6 +56,8 @@ urlpatterns = [
     url(r'^api/auth/logout/$', LogoutView.as_view(), name='logout'),
 
     url(r'^api/users/(?P<pk>[0-9]+)$', GetUserById.as_view(), name='getuserid'),
+
+    url(r'^api/vote/(?P<message_pk>[0-9]+)/(?P<value_vote>[0-1]+)/$', VoteMessageApiView.as_view()),
 ]
 
 if settings.DEBUG:

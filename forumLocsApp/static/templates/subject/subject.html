@@ -8,8 +8,10 @@
     {{ message.content }}
 
     <div ng-controller="VoteMessageInSubjectController as vote">
-        <a href="#" ng-click="vote.upvote(message)"> upvote {{ message.upvote }}</a>
-        <a href="#" ng-click="vote.downvote(message)"> downvote {{ message.downvote }}</a>
+        <a href="#" ng-click="vote.upvote(message)"> upvote </a>
+        <a href="#" ng-click="vote.downvote(message)">downvote</a>
+
+        <span>vote {{ message.vote }}</span>
     </div>
 
 

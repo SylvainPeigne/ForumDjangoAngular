@@ -20,9 +20,7 @@
             newMessageInSubject: newMessageInSubject,
             getAllMessagesInSubject: getAllMessagesInSubject,
             getNbPageInSubject: getNbPageInSubject,
-            editMessageInSubject: editMessageInSubject,
-            downvoteMessageInSubject: downvoteMessageInSubject,
-            upvoteMessageInSubject: upvoteMessageInSubject
+            editMessageInSubject: editMessageInSubject
         };
 
         return Subjects;
@@ -62,27 +60,6 @@
             });
         }
 
-        function downvoteMessageInSubject(message) {
-
-            return $http.put('/api/messages/' + message.id + '/', {
-                pk: message.id,
-                content: message.content,
-                downvote: message.downvote + 1
-
-            });
-
-        }
-
-        function upvoteMessageInSubject(message) {
-
-            return $http.put('/api/messages/' + message.id + '/', {
-                pk: message.id,
-                content: message.content,
-                upvote: message.upvote + 1
-
-            });
-
-        }
 
     }
 

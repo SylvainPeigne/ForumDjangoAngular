@@ -20,7 +20,12 @@ class NormalMessage(models.Model):
     author = models.ForeignKey(User, default=None, null=False)
     subject = models.ForeignKey(Subject, default=None, null=False)
     content = models.TextField()
-    upvote = models.IntegerField(default=0)
-    downvote = models.IntegerField(default=0)
+    message_vote = models.IntegerField(default=0)
     creation_date = models.DateTimeField(auto_now_add=True)
     edition_date = models.DateTimeField(default=None, null=True)
+
+
+class Vote(models.Model):
+    author = models.ForeignKey(User, default=None, null=False)
+    message = models.ForeignKey(NormalMessage, default=None, null=False)
+    vote = models.IntegerField(default=0)
