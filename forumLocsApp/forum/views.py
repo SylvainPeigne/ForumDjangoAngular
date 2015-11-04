@@ -100,6 +100,26 @@ class VoteMessageApiView(APIView):
         }, status=status.HTTP_201_CREATED)
 
 
+class ResolveSubject(APIView):
+    def post(self, request, subject_pk):
+        message = Subject.objects.get(pk=subject_pk)
+        if message is None:
+            return Response({
+                'status': 'Not found',
+                'message': 'This subject does not exist'
+            }, status=status.HTTP_404_NOT_FOUND)
+        if request.user != message.author.username:
+            return Response({
+                'status': 'Unauthorized',
+                'message': request.user + ' does not own this subject'
+            }, status=status.HTTP_401_UNAUTHORIZED)
+        message.resolve = True
+        return Response({
+            'status': 'Success',
+            'message': 'The subject is resolved'
+        }, status=status.HTTP_206_PARTIAL_CONTENT)
+
+
 class GetUserById(generics.RetrieveAPIView):
     queryset = User.objects.order_by('id')
     model = User

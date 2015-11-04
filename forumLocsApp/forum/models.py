@@ -14,6 +14,7 @@ class Subject(models.Model):
     name = models.CharField(max_length=255)
     nb_see = models.IntegerField(default=0)
     nb_message = models.IntegerField(default=0)
+    resolve = models.BooleanField(default=False)
 
 
 class NormalMessage(models.Model):
