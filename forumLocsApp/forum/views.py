@@ -5,8 +5,9 @@ from rest_framework import generics
 
 from .models import Category, Subject, NormalMessage, Vote
 from .serializers import CategorySerializer, SubjectSerializer, NormalMessageSerializer
-from authentication.serializers import UserSerializer
+from authentication.serializers import UserSerializer, UserForumSerializer
 from django.contrib.auth.models import User
+from authentication.models import UserForum
 
 from rest_framework import status, permissions
 from .permissions import IsAuthorOfMessage
@@ -129,3 +130,11 @@ class GetUserById(generics.RetrieveAPIView):
         if (request.user and pk == "0"):
             return Response(UserSerializer(request.user).data)
         return super(GetUserById, self).retrieve(request, pk)
+
+class UserForumViewSet(ModelViewSet):
+    queryset = UserForum.objects.order_by('id')
+    serializer_class = UserForumSerializer
+
+class UserViewSet(ModelViewSet):
+    queryset = User.objects.order_by('id')
+    serializer_class = UserSerializer
