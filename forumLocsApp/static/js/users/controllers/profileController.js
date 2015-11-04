@@ -13,6 +13,7 @@
     	function bindCurrentUserSuccess(data, status, headers, config) {
     		console.log("Success");
     		$scope.user_data = data.data;
+            console.log($scope.user_data);
     	}
 
     	function bindCurrentUserFailure(data, status, headers, config) {

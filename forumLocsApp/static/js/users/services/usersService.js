@@ -16,7 +16,7 @@
     	return Users;
 
     	function getCurrentUser() {
-    		return ($http.get('/api/users/0'));
+    		return ($http.get('/api/users_forum/0/'));
     	}
     }
 
