@@ -93,7 +93,7 @@ class VoteMessageApiView(APIView):
             }, status=status.HTTP_401_UNAUTHORIZED)
         # Do not forget to also update user for vote
         message.author = request.user  # change field
-        message.message_vote = message.message_vote + int(value_vote)
+        message.message_vote += int(value_vote)
         message.save()  # this will update only"""
         return Response({
             'status': 'Authorized',
@@ -102,17 +102,20 @@ class VoteMessageApiView(APIView):
 
 
 class ResolveSubject(APIView):
+    def get_permissions(self):
+        return permissions.IsAuthenticated(),
+
+    def is_subject_owner(self, request, message):
+        if request.user != message.author:
+            return False
+        return True
+
     def post(self, request, subject_pk):
         message = Subject.objects.get(pk=subject_pk)
-        if message is None:
-            return Response({
-                'status': 'Not found',
-                'message': 'This subject does not exist'
-            }, status=status.HTTP_404_NOT_FOUND)
-        if request.user != message.author.username:
+        if self.is_subject_owner(request, message) is False:
             return Response({
                 'status': 'Unauthorized',
-                'message': request.user + ' does not own this subject'
+                'message':  ' does not own this subject'
             }, status=status.HTTP_401_UNAUTHORIZED)
         message.resolve = True
         return Response({
@@ -131,9 +134,11 @@ class GetUserById(generics.RetrieveAPIView):
             return Response(UserSerializer(request.user).data)
         return super(GetUserById, self).retrieve(request, pk)
 
+
 class UserForumViewSet(ModelViewSet):
     queryset = UserForum.objects.order_by('id')
     serializer_class = UserForumSerializer
+
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.order_by('id')

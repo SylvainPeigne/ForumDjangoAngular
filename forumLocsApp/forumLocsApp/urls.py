@@ -29,12 +29,10 @@ from forum.views import (
     GetNumberPageInSubjectViewSet,
     GetUserById,
     VoteMessageApiView,
-<<<<<<< HEAD
-    ResolveSubject
-=======
+    ResolveSubject,
     UserViewSet,
     UserForumViewSet
->>>>>>> 76a19e916ca2a46eca3faa53e0ea03e457cd63e3
+
 )
 
 
@@ -60,7 +58,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
 
     url(r'^api/subjects/nb-message/(?P<subject_pk>[0-9]+)/$', GetNumberPageInSubjectViewSet.as_view()),
-    #url(r'^api/subjects/resolve', ResolveSubject.as_view()),
+    url(r'^api/subjects/resolve/(?P<subject_pk>[0-9]+)/$', ResolveSubject.as_view()),
     url(r'^api/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/auth/logout/$', LogoutView.as_view(), name='logout'),
 
