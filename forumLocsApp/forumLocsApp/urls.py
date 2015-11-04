@@ -28,7 +28,9 @@ from forum.views import (
     NormalMessagePaginateSubjectViewSet,
     GetNumberPageInSubjectViewSet,
     GetUserById,
-    VoteMessageApiView
+    VoteMessageApiView,
+    UserViewSet,
+    UserForumViewSet
 )
 
 
@@ -36,6 +38,8 @@ router = routers.SimpleRouter()
 router.register(r'categories', CategoryViewSet)
 router.register(r'subjects', SubjectViewSet)
 router.register(r'messages', NormalMessageViewSet)
+router.register(r'users_forum', UserForumViewSet)
+router.register(r'users', UserViewSet)
 
 users_router = routers.NestedSimpleRouter(
     router, r'subjects', lookup='subject'
@@ -55,7 +59,7 @@ urlpatterns = [
     url(r'^api/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/auth/logout/$', LogoutView.as_view(), name='logout'),
 
-    url(r'^api/users/(?P<pk>[0-9]+)$', GetUserById.as_view(), name='getuserid'),
+    #url(r'^api/users/(?P<pk>[0-9]+)$', GetUserById.as_view(), name='getuserid'),
 
     url(r'^api/vote/(?P<message_pk>[0-9]+)/(?P<value_vote>[0-1]+)/$', VoteMessageApiView.as_view()),
 ]

@@ -17,11 +17,10 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(attrs['password'])
         return user
 
-"""
+
 class UserForumSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
+    User = UserSerializer(read_only=True)
 
     class Meta:
         model = UserForum
-        fields = ('date_joined', 'date_last_connected', 'messages_written', 'url_avatar', 'score', 'role')
-"""
+        fields = ('User' ,'date_joined', 'date_last_connected', 'messages_written', 'url_avatar', 'score', 'role')
