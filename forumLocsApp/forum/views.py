@@ -115,6 +115,17 @@ class UserForumViewSet(ModelViewSet):
     queryset = UserForum.objects.order_by('id')
     serializer_class = UserForumSerializer
 
+    def dispatch(self, request, *args, **kwargs):
+        if kwargs.get('pk') == '0' and request.user:
+            kwargs['pk'] = request.user.pk
+
+        return super(UserForumViewSet, self).dispatch(request, *args, **kwargs)
+
 class UserViewSet(ModelViewSet):
     queryset = User.objects.order_by('id')
     serializer_class = UserSerializer
+
+    def retrieve(self, request, pk=None):
+        if (request.user and pk == "0"):
+            return Response(UserSerializer(request.user).data)
+        return super(GetUserById, self).retrieve(request, pk)
