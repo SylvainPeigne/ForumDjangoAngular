@@ -4,35 +4,16 @@
     "model": "auth.user",
     "fields": {
       "username": "toto",
-      "password": "pbkdf2_sha256$20000$7m2HGjeVzC9G$CwsV0IN97tSL2wklJLP0/X78HxByZ82dt3nZBDWORAg="
-
+      "password": "pbkdf2_sha256$20000$7m2HGjeVzC9G$CwsV0IN97tSL2wklJLP0/X78HxByZ82dt3nZBDWORAg=",
+      "email" : "toto@kek.fr"
     }
   },
   {
-    "pk": 2,
-    "model": "auth.user",
+    "pk": 1,
+    "model" : "authentication.UserForum",
     "fields": {
-      "username": "tata",
-      "password": "pbkdf2_sha256$20000$7m2HGjeVzC9G$CwsV0IN97tSL2wklJLP0/X78HxByZ82dt3nZBDWORAg="
-
-    }
-  },
-  {
-    "pk": 3,
-    "model": "auth.user",
-    "fields": {
-      "username": "titi",
-      "password": "pbkdf2_sha256$20000$7m2HGjeVzC9G$CwsV0IN97tSL2wklJLP0/X78HxByZ82dt3nZBDWORAg="
-
-    }
-  },
-  {
-    "pk": 4,
-    "model": "auth.user",
-    "fields": {
-      "username": "sylflo",
-      "password": "pbkdf2_sha256$20000$7m2HGjeVzC9G$CwsV0IN97tSL2wklJLP0/X78HxByZ82dt3nZBDWORAg="
-
+      "User" : 1,
+      "messages_written" : 0
     }
   }
 ]
