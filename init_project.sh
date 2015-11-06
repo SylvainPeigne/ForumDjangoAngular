@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -f $HOME/.virtualenvs/forumLocsapp/bin/activate ]
 then
