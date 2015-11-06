@@ -43,7 +43,8 @@ INSTALLED_APPS = (
     'rest_framework_swagger',
     'djangobower',
     'forum',
-    'autofixture'
+    'autofixture',
+    'authentication'
 )
 
 MIDDLEWARE_CLASSES = (

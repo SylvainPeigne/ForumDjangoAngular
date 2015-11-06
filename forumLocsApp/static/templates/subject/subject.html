@@ -6,8 +6,13 @@
     {{ message.id }}
     {{ message.author.username }}
     {{ message.content }}
-   upvote{{ message.upvote }}
-    downvote{{ message.downvote }}
+
+    <div ng-controller="VoteMessageInSubjectController as vote">
+        <a href="#" ng-click="vote.upvote(message)"> upvote </a>
+        <a href="#" ng-click="vote.downvote(message)">downvote</a>
+
+        <span>vote {{ message.vote }}</span>
+    </div>
 
 
     <div ng-if="showSubject.authenticateAccount !=  undefined">

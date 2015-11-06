@@ -8,3 +8,4 @@ class IsAuthorOfMessage(permissions.BasePermission):
         if request.user:
             return message.author == request.user
         return False
+
