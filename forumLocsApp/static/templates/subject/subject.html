@@ -3,17 +3,42 @@
 
 <ul ng-repeat="message in showSubject.messages">
 
-    {{ message.id }}
-    {{ message.author.username }}
-    {{ message.content }}
+	<ul class="list-group">
+		<li class="list-group-item">
+			<div class="row">
+				<div class="col-xs-2" style="text-align:center">
+				<!-- Need to be changed
+				-->
+					<img src="http://www.w3schools.com/bootstrap/cinqueterre.jpg" class="img-rounded col-xs-12" alt="Cinque Terre">
+					
+					<b>Pseudo</b><br/>
+					<a href="#">profil</a>
+				<!--
+				/ Need to be changed -->
+				</div>
+				<div class="col-xs-10">
+						
+						
+					{{ message.id }}
+					{{ message.author.username }}
+					{{ message.content }}
 
-    <div ng-controller="VoteMessageInSubjectController as vote">
-        <a href="#" ng-click="vote.upvote(message)"> upvote </a>
-        <a href="#" ng-click="vote.downvote(message)">downvote</a>
+		
+		
+				</div>
+			</div>
+			<div ng-controller="VoteMessageInSubjectController as vote">
+				<a href="#" ng-click="vote.upvote(message)"> upvote </a>
+				<a href="#" ng-click="vote.downvote(message)">downvote</a>
 
-        <span>vote {{ message.vote }}</span>
-    </div>
+				<span>vote {{ message.vote }}</span>
+			</div>
+		</li>
 
+	</ul>
+	
+	
+	
 
     <div ng-if="showSubject.authenticateAccount !=  undefined">
         <div ng-controller="EditMessageInSubjectController">
