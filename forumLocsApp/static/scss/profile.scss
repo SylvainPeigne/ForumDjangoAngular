@@ -1,5 +1,29 @@
 /* Css for profile view */
 
+@import "bootstrap";
+
 h1 {
   color: #000000;
 }
+
+.subject {
+	@extend .list-group;
+}
+
+.message-box {
+	@extend .list-group-item;
+}
+
+.author {
+	@extend .col-xs-2;
+}
+
+.message {
+	@extend .col-xs-10;
+}
+
+.profil-picture {
+	@extend .img-rounded col-xs-12;
+}
+
+
